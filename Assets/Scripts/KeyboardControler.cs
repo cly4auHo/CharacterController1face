@@ -1,0 +1,52 @@
+﻿using UnityEngine;
+
+public class KeyboardControler : MonoBehaviour
+{
+    private CharacterController charController;
+    [SerializeField] private float speed = 6.0f;
+    [SerializeField] private float jumpSpeed = 15.0f;
+    private float gravity = -9.8f;
+    private float terminalVelocity = -10.0f;
+    private float minFall = -1.5f;
+    private float vertSpeed;
+
+    void Start()
+    {
+        vertSpeed = minFall;
+        charController = GetComponent<CharacterController>();
+    }
+
+    void Update()
+    {
+        float deltaX = Input.GetAxis("Horizontal") * speed;
+        float deltaZ = Input.GetAxis("Vertical") * speed;
+
+        Vector3 movement = new Vector3(deltaX, 0, deltaZ);
+
+        movement = Vector3.ClampMagnitude(movement, speed);       
+        movement = transform.TransformDirection(movement);
+
+        if (charController.isGrounded)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                vertSpeed = jumpSpeed;
+            }
+            else
+            {
+                vertSpeed = minFall;
+            }
+        }
+        else
+        {
+            vertSpeed += gravity * 5 * Time.deltaTime;
+            if (vertSpeed < terminalVelocity)
+            {
+                vertSpeed = terminalVelocity;
+            }
+        }
+        movement.y = vertSpeed;
+        movement *= Time.deltaTime;
+        charController.Move(movement);
+    }
+}
