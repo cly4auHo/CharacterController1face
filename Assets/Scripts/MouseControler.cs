@@ -11,12 +11,14 @@ public class MouseControler : MonoBehaviour
     private float maximumVert = 45.0f;
 
     private float rotationX = 0;
+
     void Start()
     {
         Rigidbody body = GetComponent<Rigidbody>();
         if (body != null)
             body.freezeRotation = true;
     }
+
     void Update()
     {
         if (axes == RotationAxes.MouseX)
@@ -46,7 +48,7 @@ public class MouseControler : MonoBehaviour
 }
 public enum RotationAxes
 {
-    MouseXAndY = 0,
-    MouseX = 1,
-    MouseY = 2
+    MouseXAndY,
+    MouseX,
+    MouseY
 }

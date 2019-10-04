@@ -3,8 +3,10 @@
 public class KeyboardControler : MonoBehaviour
 {
     private CharacterController charController;
+
     [SerializeField] private float speed = 6.0f;
     [SerializeField] private float jumpSpeed = 15.0f;
+
     private float gravity = -9.8f;
     private float terminalVelocity = -10.0f;
     private float minFall = -1.5f;
