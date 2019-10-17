@@ -10,7 +10,11 @@ public class KeyboardControler : MonoBehaviour
     private float gravity = -9.8f;
     private float terminalVelocity = -10.0f;
     private float minFall = -1.5f;
+
     private float vertSpeed;
+    private float deltaX;
+    private float deltaZ;
+    private Vector3 movement;
 
     void Start()
     {
@@ -20,12 +24,12 @@ public class KeyboardControler : MonoBehaviour
 
     void Update()
     {
-        float deltaX = Input.GetAxis("Horizontal") * speed;
-        float deltaZ = Input.GetAxis("Vertical") * speed;
+        deltaX = Input.GetAxis("Horizontal") * speed;
+        deltaZ = Input.GetAxis("Vertical") * speed;
 
-        Vector3 movement = new Vector3(deltaX, 0, deltaZ);
+        movement = new Vector3(deltaX, 0, deltaZ);
 
-        movement = Vector3.ClampMagnitude(movement, speed);       
+        movement = Vector3.ClampMagnitude(movement, speed);
         movement = transform.TransformDirection(movement);
 
         if (charController.isGrounded)

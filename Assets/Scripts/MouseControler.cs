@@ -10,7 +10,9 @@ public class MouseControler : MonoBehaviour
     private float minimumVert = -45.0f;
     private float maximumVert = 45.0f;
 
-    private float rotationX = 0;
+    private float rotationX;
+    private float rotationY;
+    private float delta;
 
     void Start()
     {
@@ -29,8 +31,7 @@ public class MouseControler : MonoBehaviour
         {
             rotationX -= Input.GetAxis("Mouse Y") * sensitivityVert;
             rotationX = Mathf.Clamp(rotationX, minimumVert, maximumVert);
-
-            float rotationY = transform.localEulerAngles.y;
+            rotationY = transform.localEulerAngles.y;
 
             transform.localEulerAngles = new Vector3(rotationX, rotationY, 0);
         }
@@ -39,8 +40,8 @@ public class MouseControler : MonoBehaviour
             rotationX -= Input.GetAxis("Mouse Y") * sensitivityVert;
             rotationX = Mathf.Clamp(rotationX, minimumVert, maximumVert);
 
-            float delta = Input.GetAxis("Mouse X") * sensitivityHor;
-            float rotationY = transform.localEulerAngles.y + delta;
+            delta = Input.GetAxis("Mouse X") * sensitivityHor;
+            rotationY = transform.localEulerAngles.y + delta;
 
             transform.localEulerAngles = new Vector3(rotationX, rotationY, 0);
         }
