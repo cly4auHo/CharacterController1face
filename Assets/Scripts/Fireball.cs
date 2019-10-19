@@ -15,7 +15,7 @@ public class Fireball : MonoBehaviour
     {
         player = other.GetComponent<PlayerCharacter>();
 
-        if (player != null)
+        if (player)
         {          
             player.Hurt(damage);
         }

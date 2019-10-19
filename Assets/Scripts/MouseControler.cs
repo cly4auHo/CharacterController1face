@@ -17,7 +17,7 @@ public class MouseControler : MonoBehaviour
     void Start()
     {
         Rigidbody body = GetComponent<Rigidbody>();
-        if (body != null)
+        if (body)
             body.freezeRotation = true;
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 public class ReactiveTarget : MonoBehaviour
 {
     private WanderingAI behavior;
+    [SerializeField]private GameObject target;
     
     public void ReactToHit()
     {
@@ -19,6 +20,6 @@ public class ReactiveTarget : MonoBehaviour
     private IEnumerator Die()
     {       
         yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
+        Destroy(target);
     } 
 }
