@@ -5,13 +5,9 @@ using System.Collections;
 public class PlayerCharacter : MonoBehaviour
 {
     private int health = 5;
+
     [SerializeField] private Text healthText;
     [SerializeField] private Text gameOverText;  
-
-    public void Hurt(int damage)
-    {
-        health -= damage;
-    }
 
     void Start()
     {     
@@ -26,6 +22,11 @@ public class PlayerCharacter : MonoBehaviour
             StartCoroutine(Die());
         }
         healthText.text = "Health : " + health.ToString();
+    }
+
+    public void Hurt(int damage)
+    {
+        health -= damage;
     }
 
     private IEnumerator Die()

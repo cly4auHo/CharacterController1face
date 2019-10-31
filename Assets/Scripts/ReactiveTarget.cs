@@ -14,6 +14,7 @@ public class ReactiveTarget : MonoBehaviour
         {
             behavior.SetIsAlive(false);
         }
+
         StartCoroutine(Die());
     }
 

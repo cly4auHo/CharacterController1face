@@ -49,6 +49,7 @@ public class WanderingAI : MonoBehaviour
             }          
         }
     }
+
     public void SetIsAlive(bool isAlive)
     {
         this.isAlive = isAlive;

@@ -3,6 +3,7 @@
 public class Fireball : MonoBehaviour
 {
     private PlayerCharacter player;
+
     [SerializeField] private float speed = 15.0f;
     private int damage = 1;
 
@@ -19,6 +20,7 @@ public class Fireball : MonoBehaviour
         {          
             player.Hurt(damage);
         }
+
         Destroy(gameObject);
     }
 }

@@ -6,6 +6,7 @@ public class RayShooter : MonoBehaviour
     private Camera camera;
     private Vector3 point;
     private Ray ray;
+
     private GameObject sphere;
     private GameObject hitObject;
     private ReactiveTarget target;

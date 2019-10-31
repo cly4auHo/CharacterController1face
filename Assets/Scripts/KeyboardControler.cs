@@ -51,8 +51,10 @@ public class KeyboardControler : MonoBehaviour
                 vertSpeed = terminalVelocity;
             }
         }
+
         movement.y = vertSpeed;
         movement *= Time.deltaTime;
+
         charController.Move(movement);
     }
 }

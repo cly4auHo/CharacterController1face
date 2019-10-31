@@ -30,6 +30,7 @@ public class TargetCreator : MonoBehaviour
             CreateTarget();
             score++;
         }
+
         scoreText.text = score.ToString();
     }
 
